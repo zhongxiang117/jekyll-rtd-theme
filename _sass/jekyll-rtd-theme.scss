@@ -107,6 +107,10 @@ footer {
 }
 /* fixed the last of search results display */
 #search-results {
+    .context {
+        word-break: break-all;
+    }
+
     li:last-child {
         border-bottom: 0;
         padding-bottom: 0;
