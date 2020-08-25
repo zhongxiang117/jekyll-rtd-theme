@@ -6,7 +6,6 @@ theme: null
 
 nav_version: true
 edit: true
-addons_branch: true
 
 addons:
   - github
@@ -15,7 +14,7 @@ addons:
   - analytics
 
 copyright:
-  revision: true
+  since:
 
 readme_index:
   with_frontmatter: true
@@ -28,6 +27,22 @@ plugins:
   - jekyll-avatar
   - jekyll-mentions
 
+# more control for page viewer
+viewer:
+  theme_addons: true
+  translations: true
+  analytics: true
+  github:
+    homepage: true
+    download: true
+    issues: true
+    branch: true
+    commit: true
+  copyright:
+    copyright: true
+    time: true
+    author: true
+
 exclude:
   - Makefile
   - CNAME
@@ -39,3 +54,5 @@ exclude:
   - package.json
   - package-lock.json
   - jekyll-rtd-theme.gemspec
+
+

@@ -1,6 +1,8 @@
-<dl>
-    <dt>{{ __github }}</dt>
-    <dd><a href="{{ repository_url }}"><i class="fa fa-github"></i> {{ __homepage }}</a></dd>
-    <dd><a href="{{ zip_url }}"><i class="fa fa-download"></i> {{ __download }}</a></dd>
-    <dd><a href="{{ issues_url }}"><i class="fa fa-question-circle-o"></i> {{ __issues }}</a></dd>
-</dl>
+{%- if site.viewer.github.homepage or site.viewer.github.download or site.viewer.github.issues or site.viewer.github.branch -%}
+    <dl>
+        <dt>{{ __github }}</dt>
+        {%- if site.viewer.github.homepage -%} <dd><a href="{{ repository_url }}"><i class="fa fa-github"></i> {{ __homepage }}</a></dd> {%- endif -%}
+        {%- if site.viewer.github.download -%} <dd><a href="{{ zip_url }}"><i class="fa fa-download"></i> {{ __download }}</a></dd> {%- endif -%}
+        {%- if site.viewer.github.issues -%} <dd><a href="{{ issues_url }}"><i class="fa fa-question-circle-o"></i> {{ __issues }}</a></dd> {%- endif -%}
+    </dl>
+{%- endif -%}
