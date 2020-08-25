@@ -9,6 +9,10 @@
         {% for item in items -%}
             {%- if addons contains item -%}
                 {% include addons/{{ item }}.liquid %}
+            {%- else -%}
+                {%- if item.github -%}
+                    {% include addons/github.liquid items=item.github %}
+                {%- endif -%}
             {%- endif -%}
         {% endfor -%}
         <hr>
