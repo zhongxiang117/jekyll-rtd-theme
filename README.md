@@ -27,7 +27,7 @@ You can [generate](https://github.com/rundocs/starter-slim/generate) with the sa
 - Just need one file `_config.yml` to configure site
 
 ## Documents
-For full documentation, please refer to [rundocs.io](https://rundocs.io/), You can also view [the theme related tests documentation](https://rundocs.github.io/jekyll-rtd-theme)
+For full documentation, please refer to [rundocs.io](https://rundocs.io/), You can also view [the theme related tests documentation](https://rundocs.github.io/jekyll-rtd-theme) or preview [development version](https://rundocs.github.io/debug/)
 
 ## License
 The theme is available as open source under the terms of the [MIT License](https://github.com/rundocs/jekyll-rtd-theme/blob/master/LICENSE).
