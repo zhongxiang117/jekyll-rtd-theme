@@ -16,25 +16,27 @@
         {%- endif -%}
     {%- endif -%}
     <hr>
-
-    <div role="contentinfo" class="copyright">
-        <p>
-            {%- if site.viewer.copyright.copyright %} <i class="fa fa-copyright"></i> {{ __copyright }} {%- endif -%}
-            {% if site.viewer.copyright.time %}
-                {% if site.copyright.since %}
-                    {{ site.copyright.since | append: "-" }}
+    {%- if site.copyright -%}
+        <div role="contentinfo" class="copyright">
+            <p>
+                {% if site.copyright.since or site.copyright.revision -%}
+                    <i class="fa fa-copyright"></i> {{ __copyright }}
+                    {% if site.copyright.since -%}
+                        {{ site.copyright.since | append: "-" }}
+                    {%- endif -%}
+                    {{ site.time | date: "%Y" }},
+                    {{ author }}
+                    {% if site.copyright.revision and site.github_metadata != false -%}
+                        <span class="commit">
+                            {{ __revision }} <code>{{ commit }}</code>
+                        </span>
+                    {%- endif -%}
+                {%- else -%}
+                    {{ site.copyright }}
                 {%- endif -%}
-                {{ site.time | date: "%Y" }},
-            {%- endif -%}
-            {% if site.viewer.copyright.author %} {{ author }} {%- endif -%}
-            {% if site.viewer.github.commit and site.github_metadata != false %}
-                <span class="commit">
-                    {{ __revision }} <code>{{ commit }}</code>
-                </span>
-            {%- endif -%}
-        </p>
-    </div>
-
+            </p>
+        </div>
+    {%- endif -%}
     <div role="contentinfo" class="copyright rundocs">
         <p>Powered by <a href="https://rundocs.io">rundocs.io</a> using the jekyll docs theme <a href="https://rundocs.github.io/jekyll-rtd-theme">jekyll-rtd-theme</a></p>
     </div>
