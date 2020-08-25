@@ -1,17 +1,20 @@
 <div class="rst-versions" data-toggle="rst-versions" role="note" aria-label="versions">
     <span class="rst-current-version" data-toggle="rst-current-version">
         <span class="fa fa-book"> {{ site.title }}</span>
-        {% if site.addons_branch and site.github_metadata != false %}v: {{ branch }}{% endif %}
+        {% if site.viewer.github.branch and site.github_metadata != false %}v: {{ branch }}{% endif %}
         <span class="fa fa-caret-down"></span>
     </span>
     <div class="rst-other-versions">
-        {%- assign items = site.addons | default: addons -%}
-        {% for item in items -%}
-            {%- if addons contains item -%}
-                {% include addons/{{ item }}.liquid %}
-            {%- endif -%}
-        {% endfor -%}
+        {% include addons/github.liquid %}
+        {%- if site.viewer.translations -%} {% include addons/i18n.liquid %} {%- endif -%}
+        {%- if site.viewer.theme_addons -%} {% include addons/plugins.liquid %} {%- endif -%}
+        {%- comment -%}
+            site analytics will be always processed no matter whether it's ON or OFF,
+            it only matters to show or hide the info.
+        {%- endcomment -%}
+        {% include addons/analytics.liquid %}
         <hr>
+
         <small>
             <span>
                 Built with
