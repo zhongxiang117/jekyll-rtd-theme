@@ -1,44 +1,35 @@
 ---
-sort: 4
+sort: 3
 ---
 
 # Code Blocks
 
 `inline code`
 
-[`inline code inside link`](#)
+[`inline code inside link`](./)
 
 ```
-.highlight table td { padding: 5px; }
-.highlight table pre { margin: 0; }
-.highlight .cm {
-  color: #999988;
-  font-style: italic;
-}
-.highlight .cp {
-  color: #999999;
-  font-weight: bold;
-}
-.highlight .c1 {
-  color: #999988;
-  font-style: italic;
+:root {
+  @for $level from 1 through 12 {
+    @if $level % 4 == 0 {
+      --toc-#{$level}: #{darken($theme-white, 4 * 8.8%)};
+    } @else {
+      --toc-#{$level}: #{darken($theme-white, $level % 4 * 8.8%)};
+    }
+  }
 }
 ```
 
-## Code highlight
-```css
-.highlight table td { padding: 5px; }
-.highlight table pre { margin: 0; }
-.highlight .cm {
-  color: #999988;
-  font-style: italic;
-}
-.highlight .cp {
-  color: #999999;
-  font-weight: bold;
-}
-.highlight .c1 {
-  color: #999988;
-  font-style: italic;
+**Highlight:**
+
+```scss
+:root {
+  @for $level from 1 through 12 {
+    @if $level % 4 == 0 {
+      --toc-#{$level}: #{darken($theme-white, 4 * 8.8%)};
+    } @else {
+      --toc-#{$level}: #{darken($theme-white, $level % 4 * 8.8%)};
+    }
+  }
 }
 ```
